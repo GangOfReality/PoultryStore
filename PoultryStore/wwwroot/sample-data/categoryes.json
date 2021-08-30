@@ -1,0 +1,23 @@
+﻿[
+  {
+    "name": "Курица",
+    "subCategoryes": [
+      {
+        "name": "Бройлер",
+        "subCategoryes": null
+      },
+      {
+        "name": "Несушка",
+        "subCategoryes": null
+      }
+    ]
+  },
+  {
+    "name": "Яйца",
+    "subCategoryes": null
+  },
+  {
+    "name": "Яйца инкубационные",
+    "subCategoryes": null
+  }
+]

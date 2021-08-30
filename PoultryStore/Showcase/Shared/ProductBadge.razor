@@ -1,0 +1,16 @@
+﻿@using Showcase.Pages
+
+<div class="badge">
+    <div class="image-container">
+        <img src="@Product.ImageSource" alt="" />
+    </div>
+    <span id="InStock">InStock @Product.InStock</span>
+    <span id="Price">Price @Product.Price</span>
+</div>
+
+@code {
+
+    [Parameter]
+    public ProductListing.Product Product { get; set; }
+
+}

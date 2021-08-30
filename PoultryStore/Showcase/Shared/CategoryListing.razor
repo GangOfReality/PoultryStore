@@ -1,0 +1,37 @@
+﻿@inject HttpClient Http
+
+<div>
+    <ul>
+        @if (Categoryes != null)
+        @foreach (var category in Categoryes)
+        {
+            <li>
+                <span>@category.Name</span>
+
+                @if (category.SubCategoryes != null)
+                {
+                    <CategoryListing Categoryes="category.SubCategoryes" />
+                }
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+    [Parameter]
+    public List<Category> Categoryes { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Categoryes == null)
+        {
+            Categoryes = await Http.GetFromJsonAsync<List<Category>>("sample-data/categoryes.json");
+        }
+    }
+
+    public class Category
+    {
+        public string Name { get; set; }
+        public List<Category> SubCategoryes { get; set; }
+    }
+}

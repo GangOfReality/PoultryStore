@@ -1,0 +1,16 @@
+﻿@inherits LayoutComponentBase
+@layout MainLayout
+
+<div class="page">
+    <div class="sidebar">
+        <h1 class="navbar-name">Категории</h1>
+        <a class="navbar-name">Все категории</a>
+        <CategoryListing />
+    </div>
+
+    <div class="main">
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>

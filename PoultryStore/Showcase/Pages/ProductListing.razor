@@ -1,0 +1,30 @@
+﻿@*@page "/productlisting"*@
+@page "/"
+
+<h3>ProductListing</h3>
+
+@foreach (var badge in badges)
+{
+    <ProductBadge Product="badge" />
+}
+
+@code {
+    List<Product> badges;
+
+    public ProductListing()
+    {
+        badges = new List<Product>();
+        badges.Add(new Product { Name = "Курица рыжая", Price = "200", InStock = "15" });
+        badges.Add(new Product { Name = "Курица черная", Price = "1500", InStock = "10" });
+    }
+
+
+    public class Product
+    {
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public string InStock { get; set; }
+        public string ImageSource { get; set; }
+    }
+
+}
