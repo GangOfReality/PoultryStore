@@ -1,0 +1,78 @@
+﻿<div class="trigger-background"></div>
+<div class="trigger-item" style="@mirror.style">
+    <div class="trigger-text-container">
+        <h2 class="@mirror.label">
+            @Header
+        </h2>
+        <div class="@mirror.cats">
+            @foreach (var paragraph in Paragraphs)
+            {
+                <p>@paragraph</p>
+            }
+        </div>
+    </div>
+    <img class="@mirror.image" src="@ImageSource" alt="Жареная курица" style="@backlight" />
+</div>
+
+
+@code {
+    [Parameter]
+    public string Header { get; set; }
+
+    [Parameter]
+    public List<string> Paragraphs { get; set; }
+
+    [Parameter]
+    public string ImageSource { get; set; }
+
+    [Parameter]
+    public string Backlight
+    {
+        set => backlight = $"filter: drop-shadow(0px 8px 30px rgba({value}));";
+    }
+
+    [Parameter]
+    public bool isMirrored { get; set; }
+
+    private string backlight;
+
+    private Mirror mirror;
+
+    public Trigger()
+    {
+        Paragraphs = new();
+        mirror = new Mirror(isMirrored);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        mirror = new Mirror(isMirrored);
+    }
+
+    private class Mirror
+    {
+        public string label;
+        public string cats;
+        public string image;
+        public string style;
+
+        public Mirror(bool isMirrored)
+        {
+            if (isMirrored)
+            {
+                label = "trigger-label-mirrored";
+                cats = "trigger-cat-list-mirrored";
+                image = "trigger-image-mirrored";
+                style = "flex-direction: row-reverse;";
+            }
+            else
+            {
+                label = "trigger-label";
+                cats = "trigger-cat-list";
+                image = "trigger-image";
+                style = "flex-direction: row;";
+            }
+        }
+    }
+
+}

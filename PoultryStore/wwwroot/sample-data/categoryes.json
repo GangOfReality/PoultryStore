@@ -1,23 +1,17 @@
 ﻿[
   {
-    "name": "Курица",
-    "subCategoryes": [
-      {
-        "name": "Бройлер",
-        "subCategoryes": null
-      },
-      {
-        "name": "Несушка",
-        "subCategoryes": null
-      }
-    ]
+    "Label": "Бройлеры",
+    "ImageLink": "img/cart-broyler.jpg"
   },
   {
-    "name": "Яйца",
-    "subCategoryes": null
+    "Label": "Несушки",
+    "ImageLink": "img/cart-nesushka.jpg"
   },
   {
-    "name": "Яйца инкубационные",
-    "subCategoryes": null
+    "Label": "Яйца",
+    "ImageLink": "img/gallery6.jpg"
+  },
+  {
+    "Label": "Яйца инкубационные"
   }
 ]

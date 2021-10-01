@@ -1,0 +1,139 @@
+﻿
+<div class="login-container">
+    <div class="login-header">
+        <div class="login-header-button" @onclick="SetActiveAndShowLogin" style="@GetDivStyle(buttons.Login)">
+            <p style="@GetTextStyle(buttons.Login)">Войдите в аккаунт</p>
+        </div>
+
+        <h3 class="login-or">Или</h3>
+
+        <div class="login-header-button" @onclick="SetActiveAndShowRegistration" style="@GetDivStyle(buttons.Registration)">
+            <p style="@GetTextStyle(buttons.Registration)">Зарегистрируйтесь</p>
+        </div>
+    </div>
+
+    <div class="login-description">
+        <p>
+            Это позволит вам оформить и оплатить заказ,
+            а также заказать доставку!
+        </p>
+    </div>
+
+    <div class="login-frame">
+        <ul style="transform: translateX(@TapePosition);">
+            <li class="login-cart">
+                @*<input class="login-field" type="text" value="Телефон" />*@
+                <div class="login-field">
+                    <p>Телефон</p>
+                </div>
+                <div class="login-field">
+                    <p>Пароль</p>
+                </div>
+                <div class="login-not-logout">
+                    <input type="checkbox" name="name" value="" />
+                    <p>Не выходить</p>
+                </div>
+                <a class="forgot-password" href="#">Забыли пароль?</a>
+                <div class="login-offer">
+                    <p>Еще нет аккаунта?</p>
+                    <a href="#">Зарегистрируйтесь</a>
+                </div>
+                <div class="login-button">
+                    <a href="#">Войти</a>
+                </div>
+            </li>
+
+            <li class="login-cart">
+                <div class="login-field">
+                    <p>Имя</p>
+                </div>
+                <div class="login-field">
+                    <p>Телефон</p>
+                </div>
+                <div class="login-field">
+                    <p>Придумайте пароль</p>
+                </div>
+                <div class="login-field">
+                    <p>Повторите пароль</p>
+                </div>
+
+                <div class="login-not-logout">
+                    <input type="checkbox" name="name" value="" />
+                    <p>Не выходить</p>
+                </div>
+                <div class="registration-button">
+                    <a href="#">Зарегистрироваться</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+@code {
+    private const string loginDivStyle = "background: #23BB16; border: none;";
+    private const string registrationDivStyle = "background: #E28A06; border: none;";
+    private const string textStyle = "color: #fff;";
+    private const int cartWidth = 548;
+
+    private buttons activeButton = buttons.Login;
+    private int tapePosition;
+
+    private string TapePosition
+    {
+        get => $"-{tapePosition.ToString()}px";
+    }
+
+    private enum buttons { Login, Registration }
+
+    public Login()
+    {
+    }
+
+    private void SetTapePosition(buttons button)
+    {
+        tapePosition = cartWidth * (int)button;
+    }
+
+    private void SetActiveAndShowLogin()
+    {
+        activeButton = buttons.Login;
+        SetTapePosition(buttons.Login);
+    }
+
+    private void SetActiveAndShowRegistration()
+    {
+        activeButton = buttons.Registration;
+        SetTapePosition(buttons.Registration);
+    }
+
+    private string GetDivStyle(buttons button)
+    {
+        if (button != activeButton)
+        {
+            return string.Empty;
+        }
+
+        return button switch
+        {
+            buttons.Login => loginDivStyle,
+            buttons.Registration => registrationDivStyle,
+            _ => throw new ArgumentException($"Enum '{nameof(buttons)}' not contains '{button.ToString()}'")
+        };
+    }
+
+    private string GetTextStyle(buttons button)
+    {
+        if (button != activeButton)
+        {
+            return string.Empty;
+        }
+
+        return button switch
+        {
+            buttons.Login => textStyle,
+            buttons.Registration => textStyle,
+            _ => throw new ArgumentException($"Enum '{nameof(buttons)}' not contains '{button.ToString()}'")
+        };
+    }
+}
