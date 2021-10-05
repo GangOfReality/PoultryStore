@@ -1,0 +1,17 @@
+﻿[
+  {
+    "Label": "Бройлеры",
+    "ImageLink": "img/cart-broyler.jpg"
+  },
+  {
+    "Label": "Несушки",
+    "ImageLink": "img/cart-nesushka.jpg"
+  },
+  {
+    "Label": "Яйца",
+    "ImageLink": "img/gallery6.jpg"
+  },
+  {
+    "Label": "Яйца инкубационные"
+  }
+]

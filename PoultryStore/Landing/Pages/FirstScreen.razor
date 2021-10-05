@@ -1,0 +1,192 @@
+﻿@page "/"
+
+<div class="main">
+    <header id="header" class="header">
+        <div class="container">
+            <div class="hat">
+                <img class="logo" src="img/logo.svg" alt="PoultryStore Logo" />
+                <h1 class="logo-label">Poultry Store</h1>
+
+                <img class="tel-logo" src="img/phone.svg" alt="Phone Logo" />
+                <a class="tel" href="tel:+79302842824">
+                    +7 930 284-28-24
+                </a>
+
+                <div class="menu">
+                    <div class="menu-button" @onclick="ChangeMenuButtonStatus" style="@GetMenuStyle">
+                        <p style="@GetMenuTextStyle">Меню</p>
+                    </div>
+                    <div class="menu-dropdown" style="@GetMenuDropdownStyle">
+                        <ul>
+                            <li>Профиль</li>
+                            <li>История заказов</li>
+                            <li>Выйти</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cart">
+                    <img class="cart-logo" src="img/cart.svg" alt="Cart Logo" />
+                    <h3 class="cart-amount">2 350 ₽.</h3>
+                </div>
+            </div>
+            <div class="hat-background"></div>
+            <div class="offer">
+                <h2 class="offer-label">Фермерские продукты</h2>
+                <h3 class="offer-description">
+                    Экологически чистое мясо.
+                    Успей заказать курицу и яйца,
+                    пока не разобрали. Действуй!
+                </h3>
+                <div class="offer-button-container">
+                    <a class="offer-button-label" href="#">Посмотреть ассортимент</a>
+                </div>
+            </div>
+            <div class="offer-background"></div>
+        </div>
+    </header>
+
+    <section id="carousel" class="carousel">
+        <div class="container">
+            <Carousel />
+        </div>
+    </section>
+
+    <section id="triggers" class="triggers">
+        <div class="container">
+            <Trigger Header="Всегда свежие и натуральные продукты"
+                     Paragraphs="paragraphs[0]"
+                     ImageSource="img/trigger-img1.jpg"
+                     Backlight="114, 38, 5, 0.4"
+                     isMirrored="false" />
+
+            <Trigger Header="У вас есть свое хозяйство?"
+                     Paragraphs="paragraphs[1]"
+                     ImageSource="img/trigger-img2.jpg"
+                     Backlight="218, 95, 90, 0.4"
+                     isMirrored="true" />
+
+            <Trigger Header="Птицы с приданным"
+                     Paragraphs="paragraphs[2]"
+                     ImageSource="img/trigger-img3.jpg"
+                     Backlight="107, 76, 46, 0.4"
+                     isMirrored="false" />
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h3 class="gallery-label">Галерея</h3>
+            <div class="gallery-container">
+                <div class="gallery-column">
+                    <img src="img/gallery1.jpg" alt="Фотография из галереи" class="gallery-image1" />
+                    <img src="img/gallery2.jpg" alt="Фотография из галереи" class="gallery-image2" />
+                </div>
+                <div class="gallery-column">
+                    <img src="img/gallery3.jpg" alt="Фотография из галереи" class="gallery-image3" />
+                    <img src="img/gallery4.jpg" alt="Фотография из галереи" class="gallery-image4" />
+                </div>
+                <div class="gallery-column">
+                    <img src="img/gallery5.jpg" alt="Фотография из галереи" class="gallery-image5" />
+                    <img src="img/gallery6.jpg" alt="Фотография из галереи" class="gallery-image6" />
+                </div>
+            </div>
+
+            <div class="bottom-offer">
+                <a class="bottom-offer-button-label" href="#">Посмотреть ассортимент</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="login" class="login">
+        <div class="container">
+            <Login />
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <img class="logo" src="img/logo.svg" alt="PoultryStore Logo" />
+                <h1 class="logo-label">Poultry Store</h1>
+
+                <img class="tel-logo" src="img/phone.svg" alt="Phone Logo" />
+                <a class="tel" href="tel:+79302842824">
+                    +7 930 284-28-24
+                </a>
+
+                <div class="address-container">
+                    <h4 class="address">Адрес:</h4>
+                    <p>Сосновский район, Макасово, ул. Гагарина 111</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+
+
+
+@code {
+    private const string menuActiveStyle = "background: #fff;";
+    private const string menuTextActiveStyle = "color: #000;";
+    private const string menuDropdownStyle = "visibility: visible;";
+
+    private List<List<string>> paragraphs;
+    private bool isMenuActive = false;
+
+    private string GetMenuStyle
+    {
+        get => isMenuActive ? menuActiveStyle : string.Empty;
+    }
+
+    private string GetMenuTextStyle
+    {
+        get => isMenuActive ? menuTextActiveStyle : string.Empty;
+    }
+
+    private string GetMenuDropdownStyle
+    {
+        get => isMenuActive ? menuDropdownStyle : string.Empty;
+    }
+
+    public FirstScreen()
+    {
+        ParagraphInit();
+    }
+
+    private void ChangeMenuButtonStatus()
+    {
+        isMenuActive = !isMenuActive;
+    }
+
+    private void ParagraphInit()
+    {
+        paragraphs = new();
+
+        paragraphs.Add(new List<string>()
+        {
+            "Мясо курицы",
+            "Мясо утки",
+            "Мясо индюшки",
+            "Куриные яйца"
+        });
+
+        paragraphs.Add(new List<string>()
+        {
+            "Несушки",
+            "Цыплята",
+            "Породистые птицы",
+            "Яйца в инкубатор"
+        });
+
+        paragraphs.Add(new List<string>()
+        {
+            "Комбикорм",
+            "Зерно",
+            "Кормушки и поилки"
+        });
+    }
+}

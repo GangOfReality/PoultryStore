@@ -1,0 +1,18 @@
+﻿
+
+<li class="category-carousel-item">
+    <p>@Label</p>
+    <div class="category-carousel-item-image-container">
+        <img src="@ImageLink" alt="Картинка бройлера" />
+    </div>
+</li>
+
+
+@code {
+    [Parameter]
+    public string ImageLink { get; set; }
+
+    [Parameter]
+    public string Label { get; set; }
+
+}
