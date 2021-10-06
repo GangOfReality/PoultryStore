@@ -1,0 +1,69 @@
+﻿@inject HttpClient Http
+
+@if (viewModel != null && viewModel.ItemsCount >= carouselSize)
+{
+    <div class="category-carousel-container">
+        <a class="category-carousel-control-prev" @onclick="ShiftLeft">
+            <img src="img/arrow-left.svg" alt="Previous" />
+        </a>
+        <div class="category-carousel-frame">
+            <ul style="transform: translateX(@TapePosition);">
+                @foreach (var item in viewModel.CarouselItems)
+                {
+                    <CarouselItem ImageLink="@item.ImageLink" Label="@item.Label" />
+                }
+            </ul>
+        </div>
+        <a class="category-carousel-control-next" @onclick="ShiftRight">
+            <img src="img/arrow-right.svg" alt="Next" />
+        </a>
+    </div>
+}
+
+
+
+@code {
+    private CarouselViewModel viewModel;
+    private CarouselPresenter presenter;
+
+    private int tapePosition;
+
+    private string TapePosition
+    {
+        get => $"-{tapePosition.ToString()}px";
+    }
+
+    public Carousel()
+    {
+        presenter = new CarouselPresenter();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        viewModel = await presenter.InitAndGetViewModel();
+    }
+
+    private void ShiftTape(int pixels)
+    {
+        tapePosition += pixels;
+    }
+
+    const int cartWidth = 304;
+    const int carouselSize = 2;
+
+    private void ShiftLeft()
+    {
+        if (tapePosition > 0)
+        {
+            ShiftTape(-cartWidth);
+        }
+    }
+
+    private void ShiftRight()
+    {
+        if (tapePosition / cartWidth < viewModel.ItemsCount - carouselSize)
+        {
+            ShiftTape(cartWidth);
+        }
+    }
+}
