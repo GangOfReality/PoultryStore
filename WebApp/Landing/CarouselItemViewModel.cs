@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace WebApp.Landing
 {
-    public class LandingPresenter
+    public class CarouselItemViewModel
     {
+        public string ImageLink { get; set; }
+        public string Label { get; set; }
     }
 }

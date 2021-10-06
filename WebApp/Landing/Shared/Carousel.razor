@@ -6,7 +6,7 @@
     </a>
     <div class="category-carousel-frame">
         <ul style="transform: translateX(@TapePosition);">
-            @foreach (var item in carouselItems)
+            @foreach (var item in viewModel.CarouselItems)
             {
                 <CarouselItem ImageLink="@item.ImageLink" Label="@item.Label" />
             }
@@ -19,7 +19,9 @@
 
 
 @code {
-    List<CarouselDto> carouselItems { get; set; }
+    private CarouselViewModel viewModel;
+    private CarouselPresenter presenter;
+
     private int tapePosition;
 
     private string TapePosition
@@ -29,18 +31,12 @@
 
     public Carousel()
     {
-        carouselItems = new List<CarouselDto>();
+        presenter = new CarouselPresenter();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        carouselItems = await Http.GetFromJsonAsync<List<CarouselDto>>("sample-data/categoryes.json");
-    }
-
-    public class CarouselDto
-    {
-        public string ImageLink { get; set; }
-        public string Label { get; set; }
+        viewModel = await presenter.InitAndGetViewModel();
     }
 
     private void ShiftTape(int pixels)
@@ -61,7 +57,7 @@
 
     private void ShiftRight()
     {
-        if (tapePosition / cartWidth < carouselItems.Count - carouselSize)
+        if (tapePosition / cartWidth < viewModel.ItemsCount - carouselSize)
         {
             ShiftTape(cartWidth);
         }
