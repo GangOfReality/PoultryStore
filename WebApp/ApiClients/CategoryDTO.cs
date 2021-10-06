@@ -7,7 +7,7 @@ namespace WebApp.ApiClients
 {
     public class CategoryDTO
     {
-        public string Label;
-        public string ImageLink;
+        public string Label { get; set; }
+        public string ImageLink { get; set; }
     }
 }

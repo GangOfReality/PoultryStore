@@ -1,22 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace WebApp.ApiClients
 {
     public class CategoryClient
     {
+        private HttpClient httpClient;
+
+        public CategoryClient()
+        {
+            httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("http://localhost:55286")
+            };
+        }
+
         public async Task<List<CategoryDTO>> ReceiveAllCategories()
         {
-            var categoryes = new List<CategoryDTO>();
-
-            categoryes.Add(new CategoryDTO { Label = "Бройлеры", ImageLink = "img/cart-broyler.jpg" });
-            categoryes.Add(new CategoryDTO { Label = "Несушки", ImageLink = "img/cart-nesushka.jpg" });
-            categoryes.Add(new CategoryDTO { Label = "Яйца", ImageLink = "img/gallery6.jpg" });
-            categoryes.Add(new CategoryDTO { Label = "Яйца инкубационные" });
-
-            return categoryes;
+            try
+            {
+                var response = await httpClient.GetFromJsonAsync<List<CategoryDTO>>("sample-data/categoryes.json");
+                return response;
+            }
+            catch
+            {
+                throw new HttpRequestException();
+            }
         }
     }
 }

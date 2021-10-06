@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp.ApiClients;
 using AutoMapper;
+using System.Net.Http;
 
 namespace WebApp.Landing
 {
@@ -26,8 +27,15 @@ namespace WebApp.Landing
 
         public async Task UpdateCategories()
         {
-            var categoryes = await categoryClient.ReceiveAllCategories();
-            MapCategoriesToViewModel(categoryes);
+            try
+            {
+                var categories = await categoryClient.ReceiveAllCategories();
+                MapCategoriesToViewModel(categories);
+            }
+            catch (HttpRequestException)
+            { 
+                //TODO: add logs.
+            }
         }
 
         private void MapCategoriesToViewModel(List<CategoryDTO> dtoList)

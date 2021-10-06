@@ -7,6 +7,11 @@ namespace WebApp.Landing
 {
     public class CarouselViewModel
     {
+        public CarouselViewModel()
+        {
+            CarouselItems = new List<CarouselItemViewModel>();
+        }
+
         public List<CarouselItemViewModel> CarouselItems { get; set; }
 
         public int ItemsCount 

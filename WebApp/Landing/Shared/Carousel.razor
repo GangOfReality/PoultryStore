@@ -1,21 +1,25 @@
 ﻿@inject HttpClient Http
 
-<div class="category-carousel-container">
-    <a class="category-carousel-control-prev" @onclick="ShiftLeft">
-        <img src="img/arrow-left.svg" alt="Previous" />
-    </a>
-    <div class="category-carousel-frame">
-        <ul style="transform: translateX(@TapePosition);">
-            @foreach (var item in viewModel.CarouselItems)
-            {
-                <CarouselItem ImageLink="@item.ImageLink" Label="@item.Label" />
-            }
-        </ul>
+@if (viewModel != null && viewModel.ItemsCount >= carouselSize)
+{
+    <div class="category-carousel-container">
+        <a class="category-carousel-control-prev" @onclick="ShiftLeft">
+            <img src="img/arrow-left.svg" alt="Previous" />
+        </a>
+        <div class="category-carousel-frame">
+            <ul style="transform: translateX(@TapePosition);">
+                @foreach (var item in viewModel.CarouselItems)
+                {
+                    <CarouselItem ImageLink="@item.ImageLink" Label="@item.Label" />
+                }
+            </ul>
+        </div>
+        <a class="category-carousel-control-next" @onclick="ShiftRight">
+            <img src="img/arrow-right.svg" alt="Next" />
+        </a>
     </div>
-    <a class="category-carousel-control-next" @onclick="ShiftRight">
-        <img src="img/arrow-right.svg" alt="Next" />
-    </a>
-</div>
+}
+
 
 
 @code {
