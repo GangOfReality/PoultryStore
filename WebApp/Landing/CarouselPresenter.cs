@@ -10,13 +10,15 @@ namespace WebApp.Landing
 {
     public class CarouselPresenter
     {
-        private CategoryClient categoryClient;
+        private readonly CategoryClient categoryClient;
         private CarouselViewModel viewModel;
+        private Mapper mapper;
 
         public CarouselPresenter()
         {
             categoryClient = new CategoryClient();
             viewModel = new CarouselViewModel();
+            ConfigureMapper();
         }
 
         public async Task<CarouselViewModel> InitAndGetViewModel()
@@ -40,13 +42,20 @@ namespace WebApp.Landing
 
         private void MapCategoriesToViewModel(List<CategoryDTO> dtoList)
         {
-            var config = new MapperConfiguration(
-                cfg => cfg.CreateMap<CategoryDTO, CarouselItemViewModel>());
-
-            var mapper = new Mapper(config);
             var categoryes = mapper.Map<List<CategoryDTO>, List<CarouselItemViewModel>>(dtoList);
-
             viewModel.CarouselItems = categoryes;
+        }
+
+        private void ConfigureMapper()
+        {
+            var config = new MapperConfiguration(
+                cfg => 
+                {
+                    cfg.CreateMap<CategoryDTO, CarouselItemViewModel>();
+                    //To map another DTO to his ViewModel - just add new map.
+                });
+
+            mapper = new Mapper(config);
         }
     }
 }
