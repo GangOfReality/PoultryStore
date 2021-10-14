@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApp.ApiClients
 {
-    public class CategoryDTO
+    public record CategoryDTO
     {
         public string Label { get; set; }
         public string ImageLink { get; set; }
