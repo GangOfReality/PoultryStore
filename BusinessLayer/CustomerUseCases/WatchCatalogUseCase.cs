@@ -28,9 +28,9 @@ namespace BusinessLayer.CustomerUseCases
         public IEnumerable<ApiDTO::Category> GetCategories()
         {
             var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
-            var categoryes = dalMapper.Map<IEnumerable<DalDTO::Category>, IEnumerable<Category>>(categoryesDalDTO);
+            var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
 
-            var categoryesApiDTO = apiMapper.Map<IEnumerable<Category>, IEnumerable<ApiDTO::Category>>(categoryes);
+            var categoryesApiDTO = apiMapper.Map<IEnumerable<ApiDTO::Category>>(categoryes);
             return categoryesApiDTO;
         }
 
