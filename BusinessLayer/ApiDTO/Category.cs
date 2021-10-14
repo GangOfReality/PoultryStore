@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ApiDTO
 {
-    public class CategoryDTO
+    public record Category
     {
     }
 }

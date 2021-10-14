@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Entities
+namespace Entities
 {
-    class Category : ICategory
+    public class Category : ICategory
     {
         public void AddProduct()
         {

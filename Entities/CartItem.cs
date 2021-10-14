@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Entities
+namespace Entities
 {
-    class CartItem : ICartItem
+    public class CartItem : ICartItem
     {
         private IProduct product;
         private int quantity;

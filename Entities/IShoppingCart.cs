@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Entities
+namespace Entities
 {
-    interface IShoppingCart
+    public interface IShoppingCart
     {
     }
 }

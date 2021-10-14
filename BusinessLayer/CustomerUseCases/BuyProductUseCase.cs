@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+using BusinessLayer.Interfaces;
+
+namespace BusinessLayer.CustomerUseCases
 {
-    public class Product : IProduct
+    class BuyProductUseCase : IBuyProductUseCase
     {
-        private string name;
-        private decimal price;
     }
 }

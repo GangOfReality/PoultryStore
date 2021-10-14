@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BusinessLayer.Entities
+namespace Entities
 {
-    interface ICartItem
+    public interface ICartItem
     {
         int GetSubtotal();
     }
