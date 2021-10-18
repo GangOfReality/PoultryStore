@@ -32,8 +32,16 @@ namespace BusinessLayer.CustomerUseCases
 
         public IEnumerable<ApiDTO::Category> GetCategories()
         {
-            var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
-            var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
+            //var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
+            //var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
+
+            //TODO: It's mock, remove when DI will configured. 
+            List<Category> categoryes = new()
+            {
+                new() { Name = "Бройлеры", Image = "img/cart-broyler.jpg" },
+                new() { Name = "Несушки", Image = "img/cart-nesushka.jpg" },
+                new() { Name = "Яйца", Image = "img/gallery6.jpg" }
+            };
 
             return apiMapper.Map<IEnumerable<ApiDTO::Category>>(categoryes);
         }

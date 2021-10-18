@@ -13,7 +13,9 @@ namespace DAL.Repositories
 
         public List<Category> GetAllCategoryes()
         {
-            CreateTestCategoryes();
+            //Use only once, for creating some test rows in db.
+            //CreateTestCategoryes();
+
             List<Category> categoryes;
             using (ApplicationContext context = new ApplicationContext())
             {
