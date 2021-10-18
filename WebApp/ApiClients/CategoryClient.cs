@@ -15,7 +15,8 @@ namespace WebApp.ApiClients
         {
             httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:55286")
+                //BaseAddress = new Uri("http://localhost:55286")
+                BaseAddress = new Uri("https://localhost:44317")
             };
         }
 
@@ -23,7 +24,8 @@ namespace WebApp.ApiClients
         {
             try
             {
-                var response = await httpClient.GetFromJsonAsync<List<CategoryDTO>>("sample-data/categoryes.json");
+                //var response = await httpClient.GetFromJsonAsync<List<CategoryDTO>>("sample-data/categoryes.json");
+                var response = await httpClient.GetFromJsonAsync<List<CategoryDTO>>("/category");
                 return response;
             }
             catch
