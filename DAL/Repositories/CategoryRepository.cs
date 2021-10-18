@@ -11,9 +11,17 @@ namespace DAL.Repositories
     class CategoryRepository
     {
 
-        public object GetAllCategoryes()
+        public List<Category> GetAllCategoryes()
         {
-            throw new NotImplementedException();
+            //TODO: It's mock, need to call db. 
+            List<Category> categoryes = new()
+            {
+                new() { Name = "Бройлеры", ImageLink = "img/cart-broyler.jpg" },
+                new() { Name = "Несушки", ImageLink = "img/cart-nesushka.jpg" },
+                new() { Name = "Яйца", ImageLink = "img/gallery6.jpg" }
+            };
+
+            return categoryes;
         }
     }
 }
