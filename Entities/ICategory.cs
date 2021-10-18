@@ -8,6 +8,10 @@ namespace Entities
 {
     public interface ICategory
     {
+        string Name { get; set; }
+
+        string Image { get; set; }
+
         void AddProduct();
 
         void RemoveProduct();

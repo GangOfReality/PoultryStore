@@ -51,7 +51,8 @@ namespace WebApp.Landing
             var config = new MapperConfiguration(
                 cfg => 
                 {
-                    cfg.CreateMap<CategoryDTO, CarouselItemViewModel>();
+                    cfg.CreateMap<CategoryDTO, CarouselItemViewModel>()
+                        .ForMember(vm => vm.Label, s => s.MapFrom(dto => dto.Name));
                     //To map another DTO to his ViewModel - just add new map.
                 });
 

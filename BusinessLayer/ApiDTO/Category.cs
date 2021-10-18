@@ -8,5 +8,8 @@ namespace BusinessLayer.ApiDTO
 {
     public record Category
     {
+        public string Name { get; init; }
+
+        public string ImageLink { get; init; }
     }
 }

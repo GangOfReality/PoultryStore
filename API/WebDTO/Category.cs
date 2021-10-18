@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApp.ApiClients
+namespace API.WebDTO
 {
-    public record CategoryDTO
+    public record Category
     {
         public string Name { get; set; }
+
         public string ImageLink { get; set; }
     }
 }
