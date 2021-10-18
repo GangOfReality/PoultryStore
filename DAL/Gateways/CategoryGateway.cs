@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AutoMapper;
 using BusinessLayer.DalDTO;
 using BusinessLayer.Gateways;
+using DAL.Mapping;
 using DAL.Repositories;
 
 namespace DAL.Gateways
 {
-    class CategoryGateway : ICategoryGateway
+    public class CategoryGateway : ICategoryGateway
     {
-        CategoryRepository categoryRepository;
+        private CategoryRepository categoryRepository;
+        private Mapper mapper;
+
+        public CategoryGateway()
+        {
+            mapper = MapperFactory.GetMapper();
+        }
 
         public IEnumerable<Category> RetrieveAllCategories()
         {
             var models = categoryRepository.GetAllCategoryes();
-
-            //TODO: map models to DTO.
-            //TODO: return DTO.
-
-            throw new NotImplementedException();
+            return mapper.Map<List<Category>>(models);
         }
     }
 }
