@@ -8,7 +8,7 @@ using DalDTO = BusinessLayer.DalDTO;
 
 namespace BusinessLayer.Gateways
 {
-    interface ICategoryGateway
+    public interface ICategoryGateway
     {
         IEnumerable<DalDTO::Category> RetrieveAllCategories();
     }
