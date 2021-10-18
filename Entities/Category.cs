@@ -8,6 +8,10 @@ namespace Entities
 {
     public class Category : ICategory
     {
+        public string Name { get; set; }
+
+        public string Image { get; set; }
+
         public void AddProduct()
         {
             throw new NotImplementedException();

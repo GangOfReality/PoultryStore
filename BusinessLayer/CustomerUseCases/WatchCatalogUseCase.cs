@@ -8,12 +8,13 @@ using AutoMapper;
 using Entities;
 using BusinessLayer.Gateways;
 using BusinessLayer.Interfaces;
+using BusinessLayer.Mapping;
 using ApiDTO = BusinessLayer.ApiDTO;
 using DalDTO = BusinessLayer.DalDTO;
 
 namespace BusinessLayer.CustomerUseCases
 {
-    class WatchCatalogUseCase : IWatchCatalogUseCase
+    public class WatchCatalogUseCase : IWatchCatalogUseCase
     {
         private ICategoryGateway categoryGateway;
         private Mapper apiMapper;
@@ -21,44 +22,29 @@ namespace BusinessLayer.CustomerUseCases
 
         public WatchCatalogUseCase()
         {
-            ConfigureApiMapper();
-            ConfigureDalMapper();
+            apiMapper = ApiMapperFactory.GetMapper();
+            dalMapper = DalMapperFactory.GetMapper();
         }
 
         public IEnumerable<ApiDTO::Category> GetCategories()
         {
-            var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
-            var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
+            //var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
+            //var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
 
-            var categoryesApiDTO = apiMapper.Map<IEnumerable<ApiDTO::Category>>(categoryes);
-            return categoryesApiDTO;
+            //TODO: It's mock, need replace on gateway call. 
+            List<Category> categoryes = new()
+            {
+                new() { Name = "Бройлеры", Image = "img/cart-broyler.jpg" },
+                new() { Name = "Несушки", Image = "img/cart-nesushka.jpg" },
+                new() { Name = "Яйца", Image = "img/gallery6.jpg" }
+            };
+
+            return apiMapper.Map<IEnumerable<ApiDTO::Category>>(categoryes);
         }
 
         public IEnumerable<ApiDTO::Product> GetProductsByCategoryId(Guid categoryId)
         {
             throw new NotImplementedException();
-        }
-
-        private void ConfigureApiMapper()
-        {
-            var config = new MapperConfiguration(
-                cfg =>
-                {
-                    cfg.CreateMap<ApiDTO::Category, ICategory>();
-                });
-
-            apiMapper = new Mapper(config);
-        }
-
-        private void ConfigureDalMapper()
-        {
-            var config = new MapperConfiguration(
-                cfg =>
-                {
-                    cfg.CreateMap<DalDTO::Category, ICategory>();
-                });
-
-            dalMapper = new Mapper(config);
         }
     }
 }
