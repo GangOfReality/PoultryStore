@@ -13,7 +13,18 @@ namespace DAL.Repositories
 
         public List<Category> GetAllCategoryes()
         {
-            //TODO: It's mock, need to call db. 
+            CreateTestCategoryes();
+            List<Category> categoryes;
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                categoryes = context.Categories.ToList();
+            }
+
+            return categoryes;
+        }
+
+        private void CreateTestCategoryes()
+        {
             List<Category> categoryes = new()
             {
                 new() { Name = "Бройлеры", ImageLink = "img/cart-broyler.jpg" },
@@ -21,7 +32,14 @@ namespace DAL.Repositories
                 new() { Name = "Яйца", ImageLink = "img/gallery6.jpg" }
             };
 
-            return categoryes;
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                foreach (var cat in categoryes)
+                {
+                    context.Categories.Add(cat);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }
