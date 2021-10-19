@@ -18,6 +18,7 @@ namespace DAL.Gateways
 
         public CategoryGateway()
         {
+            categoryRepository = new CategoryRepository();
             mapper = MapperFactory.GetMapper();
         }
 

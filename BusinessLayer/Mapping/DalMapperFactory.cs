@@ -29,8 +29,9 @@ namespace BusinessLayer
             var config = new MapperConfiguration(
                 cfg =>
                 {
-                    cfg.CreateMap<DalDTO::Category, Category>();
-                });
+                    cfg.CreateMap<DalDTO::Category, Category>()
+                        .ForMember(entity => entity.Image, s => s.MapFrom(dto => dto.ImageLink));
+                }); 
 
             mapper = new Mapper(config);
         }
