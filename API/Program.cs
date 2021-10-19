@@ -26,6 +26,7 @@ namespace API
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .Enrich.FromLogContext()
+            .WriteTo.Seq("http://localhost:5341")
             .WriteTo.RollingFile(
                 pathFormat: Path.Combine(@$"{Directory.GetCurrentDirectory()}\..\Logs\info-logs.txt"),
                 restrictedToMinimumLevel: LogEventLevel.Information)
