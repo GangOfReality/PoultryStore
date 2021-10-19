@@ -57,10 +57,10 @@ namespace API
             .MinimumLevel.Debug()
             .Enrich.FromLogContext()
             .WriteTo.File(
-                path: Path.Combine(Directory.GetCurrentDirectory(), "info-logs.txt"),
+                path: Path.Combine(Directory.GetCurrentDirectory(), "..\\Logs\\info-logs.txt"),
                 restrictedToMinimumLevel: LogEventLevel.Information)
             .WriteTo.File(
-                path: Path.Combine(Directory.GetCurrentDirectory(), "error-logs.txt"),
+                path: Path.Combine(Directory.GetCurrentDirectory(), "..\\Logs\\error-logs.txt"),
                 restrictedToMinimumLevel: LogEventLevel.Error)
             .CreateLogger();
 
