@@ -4,7 +4,7 @@ using BusinessLayer.Interfaces;
 using DAL.Gateways;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace API
+namespace API.ServicesConfig
 {
     public static class ServiceProviderExtensions
     {

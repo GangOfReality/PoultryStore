@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ApiDTO = BusinessLayer.ApiDTO;
 using WebDTO = API.WebDTO;
 
-namespace API
+namespace API.Mapping
 {
     public static class MapperFactory
     {

@@ -8,6 +8,7 @@ using BusinessLayer.Interfaces;
 using BusinessLayer.CustomerUseCases;
 using WebDTO = API.WebDTO;
 using AutoMapper;
+using API.Mapping;
 
 namespace API.Controllers
 {
