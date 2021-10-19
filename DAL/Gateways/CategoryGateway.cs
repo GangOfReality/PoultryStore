@@ -24,7 +24,7 @@ namespace DAL.Gateways
 
         public IEnumerable<Category> RetrieveAllCategories()
         {
-            var models = categoryRepository.GetAllCategoryes();
+            var models = categoryRepository.RetrieveAllCategoryes();
             return mapper.Map<List<Category>>(models);
         }
     }
