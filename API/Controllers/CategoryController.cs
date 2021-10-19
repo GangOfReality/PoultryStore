@@ -32,7 +32,6 @@ namespace API.Controllers
         public IEnumerable<WebDTO::Category> Get()
         {
             Log.Information("Getting all categoryes.");
-            Log.Warning("Test message for Seq: {id}, {name}", "007", "Bond");
 
             var categories = watchCatalogUseCase.GetCategories();
             return mapper.Map<IEnumerable<WebDTO::Category>>(categories);
