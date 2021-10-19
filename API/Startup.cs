@@ -56,11 +56,11 @@ namespace API
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .Enrich.FromLogContext()
-            .WriteTo.File(
-                path: Path.Combine(Directory.GetCurrentDirectory(), "..\\Logs\\info-logs.txt"),
+            .WriteTo.RollingFile(
+                pathFormat: Path.Combine(@$"{Directory.GetCurrentDirectory()}\..\Logs\info-logs.txt"),
                 restrictedToMinimumLevel: LogEventLevel.Information)
-            .WriteTo.File(
-                path: Path.Combine(Directory.GetCurrentDirectory(), "..\\Logs\\error-logs.txt"),
+            .WriteTo.RollingFile(
+                pathFormat: Path.Combine(@$"{Directory.GetCurrentDirectory()}\..\Logs\error-logs.txt"),
                 restrictedToMinimumLevel: LogEventLevel.Error)
             .CreateLogger();
 
