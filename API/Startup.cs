@@ -1,7 +1,3 @@
-using BusinessLayer.CustomerUseCases;
-using BusinessLayer.Gateways;
-using BusinessLayer.Interfaces;
-using DAL.Gateways;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +34,8 @@ namespace API
 
             services.AddCors();
 
-            services.AddTransient<ICategoryGateway, CategoryGateway>();
-            services.AddTransient<IWatchCatalogUseCase, WatchCatalogUseCase>();
+            services.AddUseCaseServices();
+            services.AddGatewayServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
