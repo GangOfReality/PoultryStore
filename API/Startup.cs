@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using API.ServicesConfig;
+
 namespace API
 {
     public class Startup
@@ -33,6 +35,9 @@ namespace API
             });
 
             services.AddCors();
+
+            services.AddUseCaseServices();
+            services.AddGatewayServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

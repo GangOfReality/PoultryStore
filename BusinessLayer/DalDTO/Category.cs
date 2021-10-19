@@ -8,5 +8,8 @@ namespace BusinessLayer.DalDTO
 {
     public record Category
     {
+        public string Name { get; set; }
+
+        public string ImageLink { get; set; }
     }
 }

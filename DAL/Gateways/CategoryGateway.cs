@@ -18,12 +18,13 @@ namespace DAL.Gateways
 
         public CategoryGateway()
         {
+            categoryRepository = new CategoryRepository();
             mapper = MapperFactory.GetMapper();
         }
 
         public IEnumerable<Category> RetrieveAllCategories()
         {
-            var models = categoryRepository.GetAllCategoryes();
+            var models = categoryRepository.RetrieveAllCategoryes();
             return mapper.Map<List<Category>>(models);
         }
     }

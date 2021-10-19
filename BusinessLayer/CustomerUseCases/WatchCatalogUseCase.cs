@@ -20,11 +20,9 @@ namespace BusinessLayer.CustomerUseCases
         private Mapper apiMapper;
         private Mapper dalMapper;
 
-        public WatchCatalogUseCase()
+        public WatchCatalogUseCase(ICategoryGateway categoryGateway)
         {
-            //Can NOT create instance of Gateway.
-            //categoryGateway = new CategoryGateway();
-            //TODO: need to add Dependency Injection.
+            this.categoryGateway = categoryGateway;
 
             apiMapper = ApiMapperFactory.GetMapper();
             dalMapper = DalMapperFactory.GetMapper();
@@ -32,16 +30,8 @@ namespace BusinessLayer.CustomerUseCases
 
         public IEnumerable<ApiDTO::Category> GetCategories()
         {
-            //var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
-            //var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
-
-            //TODO: It's mock, remove when DI will configured. 
-            List<Category> categoryes = new()
-            {
-                new() { Name = "Бройлеры", Image = "img/cart-broyler.jpg" },
-                new() { Name = "Несушки", Image = "img/cart-nesushka.jpg" },
-                new() { Name = "Яйца", Image = "img/gallery6.jpg" }
-            };
+            var categoryesDalDTO = categoryGateway.RetrieveAllCategories();
+            var categoryes = dalMapper.Map<IEnumerable<Category>>(categoryesDalDTO);
 
             return apiMapper.Map<IEnumerable<ApiDTO::Category>>(categoryes);
         }

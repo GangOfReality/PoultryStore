@@ -8,6 +8,7 @@ using BusinessLayer.Interfaces;
 using BusinessLayer.CustomerUseCases;
 using WebDTO = API.WebDTO;
 using AutoMapper;
+using API.Mapping;
 
 namespace API.Controllers
 {
@@ -18,9 +19,9 @@ namespace API.Controllers
         IWatchCatalogUseCase watchCatalogUseCase;
         Mapper mapper;
 
-        public CategoryController()
+        public CategoryController(IWatchCatalogUseCase watchCatalogUseCase)
         {
-            watchCatalogUseCase = new WatchCatalogUseCase();
+            this.watchCatalogUseCase = watchCatalogUseCase;
             mapper = MapperFactory.GetMapper();
         }
 

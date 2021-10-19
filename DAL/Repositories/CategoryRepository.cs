@@ -11,7 +11,7 @@ namespace DAL.Repositories
     class CategoryRepository
     {
 
-        public List<Category> GetAllCategoryes()
+        public List<Category> RetrieveAllCategoryes()
         {
             //Use only once, for creating some test rows in db.
             //CreateTestCategoryes();
