@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using Serilog;
+using Serilog.Events;
 
 namespace API
 {
@@ -13,6 +10,7 @@ namespace API
     {
         public static void Main(string[] args)
         {
+            ConfigureLogger();
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -22,5 +20,19 @@ namespace API
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static void ConfigureLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .Enrich.FromLogContext()
+            .WriteTo.RollingFile(
+                pathFormat: Path.Combine(@$"{Directory.GetCurrentDirectory()}\..\Logs\info-logs.txt"),
+                restrictedToMinimumLevel: LogEventLevel.Information)
+            .WriteTo.RollingFile(
+                pathFormat: Path.Combine(@$"{Directory.GetCurrentDirectory()}\..\Logs\error-logs.txt"),
+                restrictedToMinimumLevel: LogEventLevel.Error)
+            .CreateLogger();
+        }
     }
 }
