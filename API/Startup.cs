@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using Serilog;
+using Serilog.Events;
 
 using API.ServicesConfig;
 
@@ -49,6 +52,17 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
+
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .Enrich.FromLogContext()
+            .WriteTo.File(
+                path: Path.Combine(Directory.GetCurrentDirectory(), "info-logs.txt"),
+                restrictedToMinimumLevel: LogEventLevel.Information)
+            .WriteTo.File(
+                path: Path.Combine(Directory.GetCurrentDirectory(), "error-logs.txt"),
+                restrictedToMinimumLevel: LogEventLevel.Error)
+            .CreateLogger();
 
             app.UseRouting();
 
