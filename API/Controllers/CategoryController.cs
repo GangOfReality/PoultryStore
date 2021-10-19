@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Serilog;
 
 using BusinessLayer.Interfaces;
 using BusinessLayer.CustomerUseCases;
 using WebDTO = API.WebDTO;
-using AutoMapper;
 using API.Mapping;
 
 namespace API.Controllers
@@ -30,6 +31,8 @@ namespace API.Controllers
         [HttpGet]
         public IEnumerable<WebDTO::Category> Get()
         {
+            Log.Information("Getting all categoryes.");
+
             var categories = watchCatalogUseCase.GetCategories();
             return mapper.Map<IEnumerable<WebDTO::Category>>(categories);
         }

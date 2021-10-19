@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DAL.Models;
+using Serilog;
 
 namespace DAL.Repositories
 {
@@ -22,6 +23,7 @@ namespace DAL.Repositories
                 categoryes = context.Categories.ToList();
             }
 
+            Log.Debug("Retrieving categoryes from db. {@categoryList}", categoryes);
             return categoryes;
         }
 
