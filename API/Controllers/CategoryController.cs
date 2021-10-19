@@ -18,9 +18,9 @@ namespace API.Controllers
         IWatchCatalogUseCase watchCatalogUseCase;
         Mapper mapper;
 
-        public CategoryController()
+        public CategoryController(IWatchCatalogUseCase watchCatalogUseCase)
         {
-            watchCatalogUseCase = new WatchCatalogUseCase();
+            this.watchCatalogUseCase = watchCatalogUseCase;
             mapper = MapperFactory.GetMapper();
         }
 
