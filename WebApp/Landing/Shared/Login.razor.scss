@@ -132,8 +132,8 @@ p {
 }
 
 .login-checkbox:checked + label::before {
-    background-color: black;
     border-color: black;
+    background: url(../img/check-mark.svg) no-repeat center;
 }
 
 .login-not-logout p {
