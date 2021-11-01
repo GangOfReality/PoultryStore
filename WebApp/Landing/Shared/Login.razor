@@ -22,15 +22,11 @@
     <div class="login-frame">
         <ul style="transform: translateX(@TapePosition);">
             <li class="login-cart">
-                @*<input class="login-field" type="text" value="Телефон" />*@
-                <div class="login-field">
-                    <p>Телефон</p>
-                </div>
-                <div class="login-field">
-                    <p>Пароль</p>
-                </div>
+                <input class="login-field" type="text" placeholder="Телефон" />
+                <input class="login-field" type="password" placeholder="Пароль" />
                 <div class="login-not-logout">
-                    <input type="checkbox" name="name" value="" />
+                    <input type="checkbox" class="login-checkbox" id="login-checkbox-login" name="name" />
+                    <label for="login-checkbox-login" />
                     <p>Не выходить</p>
                 </div>
                 <a class="forgot-password" href="#">Забыли пароль?</a>
@@ -44,21 +40,14 @@
             </li>
 
             <li class="login-cart">
-                <div class="login-field">
-                    <p>Имя</p>
-                </div>
-                <div class="login-field">
-                    <p>Телефон</p>
-                </div>
-                <div class="login-field">
-                    <p>Придумайте пароль</p>
-                </div>
-                <div class="login-field">
-                    <p>Повторите пароль</p>
-                </div>
+                <input class="login-field" type="text" placeholder="Имя" />
+                <input class="login-field" type="text" placeholder="Телефон" />
+                <input class="login-field" type="password" placeholder="Придумайте пароль" />
+                <input class="login-field" type="password" placeholder="Повторите пароль" />
 
                 <div class="login-not-logout">
-                    <input type="checkbox" name="name" value="" />
+                    <input type="checkbox" class="login-checkbox" id="login-checkbox-reg" name="name" />
+                    <label for="login-checkbox-reg" />
                     <p>Не выходить</p>
                 </div>
                 <div class="registration-button">
