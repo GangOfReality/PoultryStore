@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{D3A3BCBB-A1B8-474C-8F57-FD252BE3B726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesTests", "EntitiesTests\EntitiesTests.csproj", "{F06058E3-84C9-4751-99EA-B0F1646A831A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntitiesTests", "EntitiesTests\EntitiesTests.csproj", "{F06058E3-84C9-4751-99EA-B0F1646A831A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayerTests", "BusinessLayerTests\BusinessLayerTests.csproj", "{7167AD9F-0289-4244-AB52-73E132D2F2EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayerTests", "BusinessLayerTests\BusinessLayerTests.csproj", "{7167AD9F-0289-4244-AB52-73E132D2F2EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
