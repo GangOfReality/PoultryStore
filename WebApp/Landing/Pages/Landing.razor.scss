@@ -98,6 +98,10 @@ h6 {
     text-transform: lowercase;
     color: #fff;
     text-decoration: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .menu-dropdown {
