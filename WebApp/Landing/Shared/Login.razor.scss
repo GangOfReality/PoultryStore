@@ -34,6 +34,9 @@ p {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .login-or {
@@ -174,6 +177,7 @@ p {
     letter-spacing: 0.12em;
     text-decoration-line: underline;
     color: #000;
+    cursor: pointer;
 }
 
 .login-button {

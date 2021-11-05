@@ -1,4 +1,20 @@
-﻿.trigger-background {
+﻿h3 {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: 0.12em;
+    color: #202020;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.12em;
+    color: #202020;
+}
+
+.trigger-background {
     margin-top: 100px;
     width: 1120px;
     height: 400px;
@@ -15,20 +31,10 @@
     position: relative;
 }
 
-.trigger-text-container {
-    letter-spacing: 0.12em;
-    color: #202020;
-}
-
 .trigger-label {
     margin-left: 60px;
     margin-bottom: 82px;
     max-width: 472px;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 37px;
-    letter-spacing: 0.12em;
-    color: #202020;
 }
 
 .trigger-label-mirrored {
@@ -36,31 +42,18 @@
     margin-right: 60px;
     margin-bottom: 82px;
     max-width: 472px;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 37px;
-    letter-spacing: 0.12em;
     text-align: right;
-    color: #202020;
 }
 
-.trigger-cat-list p {
+.trigger-cat-list h4 {
+    margin-bottom: 20px;
     margin-left: 95px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-    letter-spacing: 0.12em;
-    color: #202020;
 }
 
-.trigger-cat-list-mirrored p {
+.trigger-cat-list-mirrored h4 {
+    margin-bottom: 20px;
     margin-right: 95px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-    letter-spacing: 0.12em;
     text-align: right;
-    color: #202020;
 }
 
 .trigger-image {
