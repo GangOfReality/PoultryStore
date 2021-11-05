@@ -1,4 +1,11 @@
-﻿.main {
+﻿%text-header-small {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.07em;
+    color: #fff;
+}
+
+.main {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -23,10 +30,7 @@ h5 {
 }
 
 h6 {
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.07em;
-    color: #fff;
+    @extend %text-header-small;
 }
 
 .container {
@@ -122,13 +126,10 @@ h6 {
 }
 
 .menu-dropdown li {
+    @extend %text-header-small;
     margin-bottom: 10px;
-    font-weight: 700;
-    font-size: 18px;
     text-align: center;
-    letter-spacing: 0.07em;
     text-transform: lowercase;
-    color: #fff;
     cursor: pointer;
 }
 
