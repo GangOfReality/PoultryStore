@@ -1,0 +1,37 @@
+﻿@import 'ColorsTemplate';
+@import 'FontsTemplate';
+@import 'EffectsTemplate';
+
+
+h1 {
+    @extend %font-headline-1;
+}
+
+h2 {
+    @extend %font-headline-2;
+}
+
+h5 {
+    @extend %font-headline-5;
+}
+
+h6 {
+    @extend %font-headline-6;
+}
+
+li {
+    @extend %font-list;
+    @extend %color-white;
+}
+
+input {
+    @extend %font-input;
+}
+
+p {
+    @extend %font-p;
+}
+
+a {
+    @extend %font-a;
+}

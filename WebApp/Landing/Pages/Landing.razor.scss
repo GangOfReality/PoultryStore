@@ -1,36 +1,7 @@
-﻿%text-header-small {
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.07em;
-    color: #fff;
-}
+﻿@import '../../Shared/StyleTemplates/_CommonTemplate.scss';
 
 .main {
     font-family: 'Montserrat', sans-serif;
-}
-
-h1 {
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0.05em;
-}
-
-h2 {
-    font-weight: 800;
-    font-size: 32px;
-    letter-spacing: 0.07em;
-}
-
-h5 {
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0.07em;
-    line-height: 30px;
-}
-
-h6 {
-    @extend %text-header-small;
 }
 
 .container {
@@ -126,10 +97,8 @@ h6 {
 }
 
 .menu-dropdown li {
-    @extend %text-header-small;
     margin-bottom: 10px;
     text-align: center;
-    text-transform: lowercase;
     cursor: pointer;
 }
 
@@ -178,9 +147,9 @@ h6 {
 }
 
 .offer-button-container {
+    @extend %color-gradient-offer_button;
     width: 382px;
     height: 69px;
-    background: linear-gradient(104.77deg, #D02228 17.27%, #BD2F0C 90.17%);
     box-shadow: 0px 15px 50px rgba(125, 32, 3, 0.41);
     border-radius: 55px;
     display: flex;
@@ -280,7 +249,8 @@ h6 {
     padding: 0 34px;
     display: flex;
     align-items: center;
-    background: linear-gradient(93.23deg, #E02323 8.81%, #D61E3F 88.77%);
+
+    @extend %color-gradient-offer_button_2;
     box-shadow: 0px 12px 40px rgba(208, 30, 30, 0.49);
     border-radius: 30px;
     transition: all 0.1s ease;
@@ -301,5 +271,5 @@ h6 {
 .login {
     height: 986px;
     padding: 82px;
-    background: linear-gradient(180deg, rgba(218, 218, 218, 0.7) 0%, rgba(180, 180, 180, 0) 100%);
+    @extend %color-gradient-background;
 }

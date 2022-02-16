@@ -1,0 +1,87 @@
+﻿
+
+%font-headline-1 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+%font-headline-2 {
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: 0.07em;
+}
+
+%font-headline-5 {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.07em;
+    line-height: 30px;
+}
+
+%font-headline-6 {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.07em;
+}
+
+
+@mixin body {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+}
+
+%font-body-semibold {
+    @include body;
+    font-weight: 600;
+}
+
+%font-body-bold {
+    @include body;
+    font-weight: 700;
+}
+
+
+@mixin bodyS {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+%font-bodyS-semibold {
+    @include bodyS;
+    font-weight: 600;
+}
+
+%font-bodyS-bold {
+    @include bodyS;
+    font-weight: 700;
+}
+
+
+%font-button {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+}
+
+%font-list {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: lowercase;
+}
+
+%font-input {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+}
+
+%font-p {
+    text-transform: none;
+}
+
+%font-a {
+    text-transform: none;
+}

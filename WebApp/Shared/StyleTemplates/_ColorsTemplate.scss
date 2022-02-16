@@ -1,0 +1,50 @@
+﻿
+
+$primary-500_base: #E47911;
+$primary-100_t: #FCF2E7;
+
+$secondary-500_base: #E02323;
+$secondary-600_s: #CA2020;
+
+$tertiary-500_base: #E4B611;
+
+$success-500_base: #23BB16;
+$success-600_s: #20A814;
+
+$warning-500_base: #E28A06;
+
+$error-500_base: #DA0B0B;
+
+$gray-200_t: #E5E5E5;
+$gray-500_base: #DADADA;
+$gray-900_s: #0D0D0D;
+
+
+%color-white {
+    color: white;
+}
+
+%color-black {
+    color: black;
+}
+
+%color-primary-500_base {
+    color: $primary-500_base;
+}
+
+%color-gray-900_s {
+    color: $gray-900_s;
+}
+
+
+%color-gradient-offer_button {
+    background: linear-gradient(104.77deg, #D02228 17.27%, #BD2F0C 90.17%);
+}
+
+%color-gradient-offer_button_2 {
+    background: linear-gradient(93.23deg, #E02323 8.81%, #D61E3F 88.77%);
+}
+
+%color-gradient-background {
+    background: linear-gradient(180deg, rgba(218, 218, 218, 0.7) 0%, rgba(180, 180, 180, 0) 100%);
+}

@@ -1,4 +1,6 @@
-﻿.main {
+﻿@import 'StyleTemplates/_CommonTemplate.scss';
+
+.main {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,7 +19,7 @@ h1 {
 
 .footer {
     height: 246px;
-    background: #000;
+    background: $gray-900_s;
     padding: 84px;
 }
 

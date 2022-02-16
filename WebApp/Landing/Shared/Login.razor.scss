@@ -1,4 +1,6 @@
-﻿.login-container {
+﻿@import '../../Shared/StyleTemplates/_CommonTemplate.scss';
+
+.login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,8 +178,13 @@ p {
     font-size: 20px;
     letter-spacing: 0.12em;
     text-decoration-line: underline;
-    color: #000;
+    color: black;
     cursor: pointer;
+}
+
+.login-offer a:hover {
+    font-weight: 600;
+    color: black;
 }
 
 .login-button {
